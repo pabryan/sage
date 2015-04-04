@@ -2,11 +2,8 @@
 Vector Symmetric functions, with their multiple realizations
 """
 #*****************************************************************************
-#       Copyright (C) 2007 Mike Hansen <mhansen@gmail.com>
-#                     2009-2012 Jason Bandlow <jbandlow@gmail.com>
-#                     2012 Anne Schilling <anne at math.ucdavis.edu>
-#                     2009-2012 Nicolas M. Thiery <nthiery at users.sf.net>
-#                     2012 Mike Zabrocki <mike.zabrocki@gmail.com>
+#       Copyright (C) 2015 Paul Bryan <pabryan@gmail.com>
+#                     2015 Eric Weise <eweise@ucsd.edu>
 #
 #  Distributed under the terms of the GNU General Public License (GPL)
 #
@@ -22,35 +19,29 @@ Vector Symmetric functions, with their multiple realizations
 from sage.structure.parent import Parent
 from sage.structure.unique_representation import UniqueRepresentation
 from sage.categories.all import Rings, GradedHopfAlgebras
-from sage.combinat.partition import Partitions
+from sage.combinat.vector_partition import VectorPartitions
 from sage.combinat.free_module import CombinatorialFreeModule
 from sage.rings.rational_field import QQ
 
-import schur
 import monomial
 import powersum
 import elementary
 import homogeneous
-import hall_littlewood
-import jack
-import macdonald
-import llt
 
 class SymmetricFunctions(UniqueRepresentation, Parent):
     r"""
-    The abstract algebra of commutative symmetric functions
+    The abstract algebra of commutative vector symmetric functions
 
-    .. rubric:: Symmetric Functions in Sage
+    .. rubric:: Vector Symmetric Functions in Sage
 
-    .. MODULEAUTHOR:: Jason Bandlow, Anne Schilling, Nicolas M. Thiery, Mike Zabrocki
+    .. MODULEAUTHOR:: Paul Bryan, Eric Weise
 
-    This document is an introduction to working with symmetric function
+    This document is an introduction to working with vector symmetric function
     theory in Sage.
     It is not intended to be an introduction to the theory
-    of symmetric functions ([MAC]_ and [STA]_, Chapter 7, are two excellent
-    references.)  The reader is also expected to be familiar with Sage.
+    of vector symmetric functions ().  The reader is also expected to be familiar with Sage.
 
-    .. rubric:: The algebra of symmetric functions
+    .. rubric:: The algebra of vector symmetric functions
 
     The algebra of symmetric functions is the unique free commutative graded
     connected algebra over the given ring, with one generator in each degree.  It
